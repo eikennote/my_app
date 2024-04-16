@@ -24,3 +24,8 @@ class Horse(models.Model):
     def __str__(self):
         return self.name
     
+class Evidence(models.Model):
+    description = models.TextField(max_length=1000, null=True, verbose_name='説明')
+
+    def __str__(self):
+        return self.name
