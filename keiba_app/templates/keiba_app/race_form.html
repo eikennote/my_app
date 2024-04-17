@@ -6,7 +6,7 @@
 </head>
 <body>
     <h4>レースの追加</h4>
-    <form action="{% url 'keiba app:create_post' %}">
+    <form action="{% url 'keiba_app:create_race' %}">
         {% csrf_token %}
         {{ form }}
         <button type="submit">作成</button>
