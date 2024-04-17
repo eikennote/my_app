@@ -15,6 +15,7 @@ class Race(models.Model):
     def __str__(self):
         return self.name
     
+
 class Horse(models.Model):
     horse_name = models.CharField(max_length=12, verbose_name='馬名')
     recommend = models.IntegerField(default=0, verbose_name='おすすめ度')
@@ -24,6 +25,7 @@ class Horse(models.Model):
     def __str__(self):
         return self.name
     
+
 class Evidence(models.Model):
     description = models.TextField(max_length=1000, null=True, verbose_name='説明')
 
