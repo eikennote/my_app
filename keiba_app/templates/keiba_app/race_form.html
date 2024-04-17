@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新規レース作成</title>
+</head>
+<body>
+    <h4>レースの追加</h4>
+    <form action="{% url 'keiba app:create_post' %}">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">作成</button>
+    </form>
+    <a href="{% url 'keiba_app:read_race' %}">戻る</a>
+</body>
+</html>

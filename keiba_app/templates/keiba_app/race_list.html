@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>レース一覧</title>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>User Name</th>
+                <th>Race</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for race in races %}
+            <tr>
+                <th>{{ race.id }}</th>
+                <th>{{ race.race_name }}</th>
+                <th>{{ race.race_distance }}</th>
+                <th>{{ race.grass_or_dirt }}</th>
+                <td>
+                    <a>削除</a> <!-- 削除URLの追記が必要 -->
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'keiba_app:create_post' %}">作成</a>
+</body>
+</html>
