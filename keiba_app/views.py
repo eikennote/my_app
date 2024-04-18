@@ -8,16 +8,16 @@ def create_race(request):
     race = Race()
 
     if request.method == "GET": #GET操作だった場合はkeiba_app/race_form.htmlのページを返す。
-        form = PostForm(instance=race)
+        form = RaceForm(instance=race)
 
         return render(request, 'keiba_app/race_form.html', {'form': form})
     
     if request.method == "POST": #POST操作だった場合はデータ更新の処理を行う。
-        form = PostForm(request.RACE, instance=race)
+        form = RaceForm(request.POST, instance=race)
 
         if form.is_valid():
             race = form.save(commit=False)
-            race.save
+            race.save()
         
         return redirect('keiba_app:read_race')
     
@@ -27,7 +27,7 @@ def read_race(request):
     races = Race.objects.all().order_by('id')
     return render(request, 'keiba_app/race_list.html', {'races': races})
 
-class PostForm(ModelForm):
+class RaceForm(ModelForm):
     class Meta:
         model = Race
-        fields = ('race_name', 'race_distance', 'ground')
+        fields = ('race_name', 'race_distance', 'ground', 'race_date')
